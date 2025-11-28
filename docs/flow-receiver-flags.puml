@@ -1,0 +1,31 @@
+@startuml receiver-flags
+title Flow: Receiver (Flag Mode)
+
+actor User
+participant "LocalLoad Tool" as Tool
+participant "Network/Peer" as Peer
+
+User -> Tool : Execute: localload -r 12345 -p 22222
+Tool -> Tool : Enter receive mode
+Tool -> Tool : Use number 12345
+Tool -> Tool : Use sender number 22222
+
+loop Until connection established with peer
+    Tool -> Peer : Search for peer
+    Tool -> Peer : Attempt connection
+    Tool <-> Peer : Exchange numbers
+    alt
+        Tool -> Tool : Valid peer number continue
+    else
+        Tool -> Tool : Invalid number repeat loop
+    end
+end
+
+Tool -> Peer : Send message "you can send"
+Peer -> Tool : Send files
+Tool -> Tool : Receive files
+Tool -> Peer : Send message "finished"
+Tool -> Peer : End connection
+Tool -> User : End
+
+@enduml

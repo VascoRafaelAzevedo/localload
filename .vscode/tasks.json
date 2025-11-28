@@ -1,0 +1,63 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "Build with gcc 14.2.0",
+			"command": "/usr/bin/g++-14",
+			"args": [
+				"-fdiagnostics-color=always",
+				"-g",
+				"-std=c++23",
+				"-I${workspaceFolder}/include",
+				"${workspaceFolder}/src/*.cpp",
+				"-o",
+				"${workspaceFolder}/build/rooster"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"presentation": {
+				"reveal": "silent",
+				"panel": "shared"
+			},
+			"detail": "compiler: /usr/bin/g++-14"
+		},
+		{
+			"type": "shell",
+			"label": "Build with clang 19.1.7",
+			"command": "/usr/bin/clang++-19",
+			"args": [
+				"-fdiagnostics-color=always",
+				"-g",
+				"-std=c++23",
+				"-I${workspaceFolder}/include",
+				"${workspaceFolder}/src/*.cpp",
+				"-o",
+				"${workspaceFolder}/build/rooster"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"presentation": {
+				"reveal": "silent",
+				"panel": "shared"
+			},
+			"detail": "compiler: /usr/bin/clang++-19"
+		}
+	]
+}

@@ -1,0 +1,19 @@
+{
+  "C_Cpp.intelliSenseEngine": "disabled",
+  "files.exclude": {
+    "**/.vscode/**": false
+  },
+  "files.associations": {
+    "span": "cpp"
+  },
+  "[cpp]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false
+  },
+  "[c]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false
+  }
+}

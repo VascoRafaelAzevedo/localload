@@ -1,0 +1,17 @@
+{
+  "configurations": [
+    {
+      "name": "Linux",
+      "compilerPath": "/usr/bin/clang++-19",
+      "cStandard": "c11",
+      "cppStandard": "c++23",
+      "intelliSenseMode": "linux-clang-x64",
+      "includePath": [
+        "${workspaceFolder}/include",
+        "${workspaceFolder}/src"
+      ],
+      "browse": { "path": ["${workspaceFolder}"] }
+    }
+  ],
+  "version": 4
+}

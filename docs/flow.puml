@@ -1,0 +1,25 @@
+@startuml flow
+title System Sequence Diagram - TEMPLATE
+
+actor User as U
+participant System as S
+participant ExternalService
+
+U -> S : 1. User triggers action
+S -> S : 2. System validates data
+S -> ExternalService : 3. Fetch required info
+ExternalService --> S : 4. Return data
+S --> U : 5. Return response
+
+alt Invalid data
+    S --> U : Error message
+else Valid data
+    S -> S : Continue processing
+end
+
+loop While condition is true
+    U -> S : Repeated request
+    S --> U : Repeated response
+end
+
+@enduml

@@ -1,0 +1,33 @@
+@startuml receiver-interactive
+title Flow: Receiver (Interactive Mode - No Flags)
+
+actor User
+participant "LocalLoad Tool" as Tool
+participant "Network/Peer" as Peer
+
+User -> Tool : Execute tool
+Tool -> Tool : Generate random number
+Tool -> User : Ask: receive or send?
+User -> Tool : Select "receive"
+Tool -> User : Ask: number of sender?
+User -> Tool : Insert sender number
+
+loop Until connection established with peer
+    Tool -> Peer : Search for peer
+    Tool -> Peer : Attempt connection
+    Tool <-> Peer : Exchange numbers
+    alt
+        Tool -> Tool : Valid peer number continue
+    else
+        Tool -> Tool : Invalid number repeat loop
+    end
+end
+
+Tool -> Peer : Send message "you can send"
+Peer -> Tool : Send files
+Tool -> Tool : Receive files
+Tool -> Peer : Send message "finished"
+Tool -> Peer : End connection
+Tool -> User : End
+
+@enduml
